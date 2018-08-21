@@ -7,7 +7,7 @@ import logoImg from '../logo.png'
 export default withSiteData(() => (
   <div>
     <Head>
-      <title>February 30th - Home</title>
+      <title>Home</title>
     </Head>
   </div>
 ))
