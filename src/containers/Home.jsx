@@ -1,13 +1,10 @@
 import React from 'react'
 import { withSiteData } from 'react-static'
 import { Head } from 'react-static'
-//
-import logoImg from '../logo.png'
+import IntroSection from '../components/IntroSection';
 
 export default withSiteData(() => (
   <div>
-    <Head>
-      <title>Home</title>
-    </Head>
+    <IntroSection />
   </div>
 ))
