@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { colors } from '../styles/variables';
-import logoImg from '../assets/logo.jpeg'
 
 const Section = styled.section`
 color: ${colors.beige};
@@ -17,7 +16,6 @@ img {
 
 export default () => (
     <Section className="test">
-        <img src={logoImg} />
         Welcome to February 30th's Official Web Site.
     </Section>
 )

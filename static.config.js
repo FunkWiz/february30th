@@ -20,7 +20,7 @@ export default {
     return html
   },
   Document: class CustomHtml extends Component {
-    render () {
+    render() {
       const {
         Html, Head, Body, children, renderMeta,
       } = this.props
@@ -31,6 +31,7 @@ export default {
             <meta charSet="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <title>February 30th</title>
+            <link rel="icon" href="/favicon.ico"></link>
             {renderMeta.styleTags}
           </Head>
           <Body>{children}</Body>
