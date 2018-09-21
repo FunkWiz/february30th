@@ -4,6 +4,7 @@ import { colors } from '../styles/variables'
 import roundLogo from '../assets/round_logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
+import { MixpanelApi } from '../api/mixpanel-api';
 
 const shakeAnimation = keyframes`
   10%, 90% {
@@ -64,6 +65,10 @@ transition: transform .2s;
 }
 `
 
+const _onFacebookIconClick = () => {
+    MixpanelApi.reportClick('Facebook Icon');
+}
+
 export default () => (
     <Section>
         <Content>
@@ -75,7 +80,7 @@ export default () => (
             </Title>
             <div>
                 <a target="_blank" href="https://www.facebook.com/february30th.music/">
-                    <FacebookIcon icon={faFacebookSquare} />
+                    <FacebookIcon icon={faFacebookSquare} onClick={_onFacebookIconClick} />
                 </a>
             </div>
         </Content>
