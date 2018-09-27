@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import { colors } from '../styles/variables'
 import roundLogo from '../assets/round_logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
+import { faFacebookSquare, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { MixpanelApi } from '../api/mixpanel-api';
 
 const shakeAnimation = keyframes`
@@ -27,7 +27,6 @@ const shakeAnimation = keyframes`
 
 const Section = styled.section`
 height:100vh;
-background-color:${colors.black};
 user-select:none;
 `
 const Content = styled.div`
@@ -48,14 +47,17 @@ const RoundLogoImg = styled.img`
 max-width:300px;
 -webkit-user-drag:none;
 `
-
-const FacebookIcon = styled(FontAwesomeIcon)`
+const SocialIconLink = styled.a`
+display:inline-block;
+margin: 0 10px;
+vertical-align:middle;
+`
+const SocialIcon = styled(FontAwesomeIcon)`
 color:${colors.turquoise};
 font-size:44px;
 animation-name: ${shakeAnimation};
 animation-timing-function:cubic-bezier(.36,.07,.19,.97);
 animation-duration:1.2s;
-animation-delay:3s;
 backface-visibility: hidden;
 perspective: 1000px;
 transform:translate3d(0, 0, 0) scale(.9);
@@ -64,25 +66,55 @@ transition: transform .2s;
     transform:translate3d(0, 0, 0) scale(1);
 }
 `
+const DynamicSocialIcon = styled(SocialIcon)`
+animation-delay: ${props => props.delay || 1}s;
+`
 
-const _onFacebookIconClick = () => {
-    MixpanelApi.reportClick('Facebook Icon');
+const reportSocial = {
+    facebook: () => {
+        MixpanelApi.reportClick('Facebook Icon');
+    },
+    instagram: () => {
+        MixpanelApi.reportClick('Instagram Icon');
+    },
+    youtube: () => {
+        MixpanelApi.reportClick('Youtube Icon');
+    }
 }
-
-export default () => (
-    <Section>
-        <Content>
-            <div>
-                <RoundLogoImg src={roundLogo} />
-            </div>
-            <Title>
-                Coming Soon
-            </Title>
-            <div>
-                <a target="_blank" href="https://www.facebook.com/february30th.music/">
-                    <FacebookIcon icon={faFacebookSquare} onClick={_onFacebookIconClick} />
-                </a>
-            </div>
-        </Content>
-    </Section>
-)
+export default () => {
+    return (
+        <Section>
+            <Content>
+                <div>
+                    <RoundLogoImg src={roundLogo} />
+                </div>
+                <Title>
+                    Coming Soon
+                </Title>
+                <div>
+                    <SocialIconLink target="_blank" href="https://www.facebook.com/february30th.music/">
+                        <DynamicSocialIcon
+                            icon={faFacebookSquare}
+                            onClick={reportSocial.facebook}
+                            delay={3}
+                        />
+                    </SocialIconLink>
+                    <SocialIconLink target="_blank" href="https://www.instagram.com/february30th.music/">
+                        <DynamicSocialIcon
+                            icon={faInstagram}
+                            onClick={reportSocial.instagram}
+                            delay={8}
+                        />
+                    </SocialIconLink>
+                    <SocialIconLink target="_blank" href="https://www.youtube.com/channel/UCiSV97J5Zcz-_IybT59UJKw">
+                        <DynamicSocialIcon
+                            icon={faYoutube}
+                            onClick={reportSocial.youtube}
+                            delay={13}
+                        />
+                    </SocialIconLink>
+                </div>
+            </Content>
+        </Section>
+    )
+}
