@@ -7,7 +7,9 @@ const GaApi = {
         ReactGA.initialize(trackingId)
     },
     reportPageView: () => {
-        ReactGA.pageview(`${window.location.pathname}${window.location.search}`)
+        if (typeof window !== 'undefined') {
+            ReactGA.pageview(`${window.location.pathname}${window.location.search}`)
+        }
     }
 }
 
