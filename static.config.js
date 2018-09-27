@@ -3,7 +3,7 @@ import { ServerStyleSheet } from 'styled-components'
 
 export default {
   getSiteData: () => ({
-    title: 'React Static',
+    title: 'February 30th',
   }),
   getRoutes: async () => {
     return [
