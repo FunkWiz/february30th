@@ -7,7 +7,6 @@ background-color:red;
 height:100vh;
 `
 export default () => {
-    alert(123);
     return (
         <Container>
             Loading...

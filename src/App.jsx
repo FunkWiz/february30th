@@ -1,6 +1,6 @@
 import React from 'react'
 import { Router } from 'react-static'
-import { injectGlobal } from 'styled-components'
+import styled, { injectGlobal } from 'styled-components'
 import { hot } from 'react-hot-loader'
 import resetCss from 'styled-reset'
 //
@@ -11,16 +11,23 @@ injectGlobal`
  ${resetCss}
   body {
     font-family: Arial, sans-serif;
-    font-size: 16px;
+    font-size: 16px
     background: ${colors.brown};  /* fallback for old browsers */
     background: linear-gradient(to right, ${colors.brown}, #221e1b);
-
+    color:${colors.beige};
   }
 `
+
+const MainContent = styled.div`
+padding:15px;
+`
+
 const App = () => (
   <Router>
     <div>
-      <Routes />
+      <MainContent>
+        <Routes />
+      </MainContent>
     </div>
   </Router>
 )

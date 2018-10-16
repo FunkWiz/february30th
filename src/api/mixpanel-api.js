@@ -12,6 +12,9 @@ const MixpanelApi = {
     init: () => {
         mixpanel.init(token);
     },
+    reportAction: action => {
+        _track('Action Event', action);
+    },
     reportPageView: page => {
         _track('Page View', page);
     },
