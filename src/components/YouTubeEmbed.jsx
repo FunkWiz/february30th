@@ -12,7 +12,7 @@ margin:0 auto;
 const Aspect = styled.div`
     width: 100%;
     height: 0;
-    padding-bottom: 56%;
+    padding-bottom: 42%;
     position: relative;
 `
 const AspectInner = styled.div`
