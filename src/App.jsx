@@ -11,7 +11,7 @@ injectGlobal`
  ${resetCss}
   body {
     font-family: Arial, sans-serif;
-    font-size: 16px
+    font-size: 16px;
     background: ${colors.brown};  /* fallback for old browsers */
     background: linear-gradient(to right, ${colors.brown}, #221e1b);
     color:${colors.beige};
