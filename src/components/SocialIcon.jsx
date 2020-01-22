@@ -14,7 +14,7 @@ const shakeAnimation = keyframes`
 
   30%, 50%, 70% {
     transform: translate3d(-4px, 0, 0);
-    color:${colors.beige};
+    color:${colors.white};
   }
 
   40%, 60% {
@@ -28,7 +28,7 @@ margin: 0 10px;
 vertical-align:middle;
 `
 const SocialIcon = styled(FontAwesomeIcon)`
-color:${colors.turquoise};
+color:${colors.white};
 font-size:44px;
 animation-name: ${shakeAnimation};
 animation-timing-function:cubic-bezier(.36,.07,.19,.97);
@@ -46,7 +46,7 @@ const DynamicSocialIcon = styled(SocialIcon)`
 animation-delay: ${props => props.delay || 1}s;
 `
 
-export default ({ href, icon, reportMessage, animationDelay }) => {
+export default ({ href, icon, reportMessage, animationDelay, color }) => {
     const _onClick = () => {
         MixpanelApi.reportClick(reportMessage);
     }
@@ -57,6 +57,9 @@ export default ({ href, icon, reportMessage, animationDelay }) => {
                 icon={icon}
                 onClick={_onClick}
                 delay={animationDelay}
+                style={{
+                  color: color
+                }}
             />
         </SocialIconLink>
     )

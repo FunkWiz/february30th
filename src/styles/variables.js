@@ -2,10 +2,11 @@ import { css } from 'styled-components'
 
 export const colors = {
     black: '#000',
+    gray: '#2a2426',
     white: '#fff',
     beige: '#d8ab75',
     turquoise: '#018f7d',
-    brown: '#2d1b13'
+    brown: '#2d1b13',
 }
 
 export const media = {

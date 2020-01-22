@@ -1,12 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import roundLogo from '../assets/round_logo.png'
-import { faFacebookSquare, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import roundLogo from '../assets/binderlogo.jpg';
+import { faFacebookSquare, faInstagram, faYoutube, faSpotify } from '@fortawesome/free-brands-svg-icons'
 import SocialIcon from './SocialIcon';
 import YouTubeEmbed from './YouTubeEmbed';
-import spotifyLogo from '../assets/spotify.png'
-import { colors } from '../styles/variables';
-import { MixpanelApi } from '../api/mixpanel-api';
 
 const Section = styled.section`
 height:100vh;
@@ -20,29 +17,25 @@ text-align: center;
 `
 const RoundLogoImg = styled.img`
 max-width:200px;
+border-radius:50%;
 -webkit-user-drag:none;
 `
-const Title = styled.h1`
-font-size:30px;
-font-weight: 700;
-`
-const SpotifyLogoContainer = styled.a`
-display: inline-block;
-&, &:hover, &:visited, &:active {
-    color:${colors.beige};
-    text-decoration: none;
-}
-img {
-    max-width:200px;
-}
-`
+
+const CenteredContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    max-width: 600px;
+    min-width: 300px;
+    margin: 0 auto 35px;
+`;
+
 const SpotifyTitle = styled.h2`
 font-size:26px;
 margin-bottom:5px;
 `
-const _onSpotifyClick = () => {
-    MixpanelApi.reportClick('Listen On Spotify Clicked');
-}
+
 export default () => {
     return (
         <Section>
@@ -50,40 +43,38 @@ export default () => {
                 <div>
                     <RoundLogoImg src={roundLogo} />
                 </div>
-                <div>
-                    <Title>PLACES - OUT NOW</Title>
-                </div>
-                <div>
-                    <YouTubeEmbed videoId="0_aQnjeGj10" videoTitle="Places" />
-                </div>
-                <div>
+                <CenteredContainer>
                     <SocialIcon
-                        href="https://www.facebook.com/february30th.music/"
-                        icon={faFacebookSquare}
+                        href="https://open.spotify.com/artist/1coR5FdLQXwbu8dLM1yEBS"
+                        icon={faSpotify}
                         animationDelay={3}
-                        reportMessage="Facebook Icon"
+                        reportMessage="Spotify Icon"
+                        color="#1DB954"
                     />
                     <SocialIcon
-                        href="https://www.instagram.com/february30th.music/"
-                        icon={faInstagram}
+                        href="https://www.facebook.com/binderdundat.music/"
+                        icon={faFacebookSquare}
                         animationDelay={8}
+                        reportMessage="Facebook Icon"
+                        color="#3b5998"
+                    />
+                    <SocialIcon
+                        href="https://www.instagram.com/binder.dundat/"
+                        icon={faInstagram}
+                        animationDelay={13}
                         reportMessage="Instagram Icon"
+                        color="#fbad50"
                     />
                     <SocialIcon
                         href="https://www.youtube.com/channel/UCiSV97J5Zcz-_IybT59UJKw"
                         icon={faYoutube}
-                        animationDelay={13}
+                        animationDelay={18}
                         reportMessage="YouTube Icon"
+                        color="#c4302b"
                     />
-                </div>
+                </CenteredContainer>
                 <div>
-                    <SpotifyLogoContainer
-                        onClick={_onSpotifyClick}
-                        target="_blank"
-                        href="https://open.spotify.com/artist/3TZzWeRIJQEQsOuNzAEsN8">
-                        <SpotifyTitle>LISTEN ON</SpotifyTitle>
-                        <img src={spotifyLogo} />
-                    </SpotifyLogoContainer>
+                    <YouTubeEmbed videoId="0_aQnjeGj10" videoTitle="Places" />
                 </div>
             </Content>
         </Section>

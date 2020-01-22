@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from '../styles/variables';
-import smallLogo from '../assets/small_logo.png'
+import smallLogo from '../assets/binderlogo.jpg';
 import Burger from './Burger';
 
 const Header = styled.header`
