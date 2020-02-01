@@ -6,6 +6,7 @@ import resetCss from 'styled-reset'
 //
 import Routes from 'react-static-routes'
 import { colors } from './styles/variables'
+import Header from './components/Header';
 
 injectGlobal`
  ${resetCss}
@@ -21,14 +22,18 @@ const MainContent = styled.div`
 padding:15px;
 `
 
+
 const App = () => (
-  <Router>
-    <div>
-      <MainContent>
-        <Routes />
-      </MainContent>
-    </div>
-  </Router>
+  <div>
+    <Router>
+      <div>
+        <Header />
+        <MainContent>
+          <Routes />
+        </MainContent>
+      </div>
+    </Router>
+  </div>
 )
 
 export default hot(module)(App)

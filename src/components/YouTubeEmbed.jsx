@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import YouTube from 'react-youtube'
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import YouTube from 'react-youtube';
 import { MixpanelApi } from '../api/mixpanel-api';
 
 const Container = styled.div`
@@ -25,9 +25,12 @@ const AspectInner = styled.div`
     iframe {
         display:block;
     }
+
+    > div {
+        width: 100%;
+        height: 100%;
+    }
 `
-
-
 
 const options = {
     width: '100%',
@@ -42,6 +45,8 @@ const options = {
     }
 }
 export default ({ videoId, videoTitle }) => {
+    const [isReady, setIsReady] = useState(false);
+
     const _onPlay = () => {
         MixpanelApi.reportAction(`Played YouTube Video ${videoTitle}`)
     }
@@ -55,12 +60,14 @@ export default ({ videoId, videoTitle }) => {
         <Container>
             <Aspect>
                 <AspectInner>
+                    {!isReady && 'loading video...'}
                     <YouTube
                         opts={options}
                         videoId={videoId}
                         onPlay={_onPlay}
                         onPause={_onPause}
                         _onEnd={_onEnd}
+                        onReady={setIsReady}
                     />
                 </AspectInner>
             </Aspect>

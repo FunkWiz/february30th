@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { colors } from '../styles/variables';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { MixpanelApi } from '../api/mixpanel-api';
 
 const shakeAnimation = keyframes`
   10%, 90% {

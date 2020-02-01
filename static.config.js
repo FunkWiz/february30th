@@ -10,6 +10,10 @@ export default {
       {
         path: '/',
         component: 'src/containers/Home',
+      },
+      {
+        path: '/videos',
+        component: 'src/containers/Videos'
       }
     ]
   },

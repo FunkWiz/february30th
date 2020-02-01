@@ -40,10 +40,7 @@ export default () => {
     return (
         <Section>
             <Content>
-                <div>
-                    <RoundLogoImg src={roundLogo} />
-                </div>
-                <CenteredContainer>
+             <CenteredContainer>
                     <SocialIcon
                         href="https://open.spotify.com/artist/1coR5FdLQXwbu8dLM1yEBS"
                         icon={faSpotify}
