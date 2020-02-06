@@ -8,7 +8,7 @@ const Disclaimer = styled.h3`
   font-size: 18px;
   font-weight: 600;
   text-align: center;
-
+  line-height: 1.2;
   margin-bottom: 20px;
 `;
 
@@ -18,7 +18,7 @@ export default () => {
   return (
     <div>
       <Disclaimer>
-        NEW MATERIAL COMING SOON
+        VALENTINE'S DAY - OUT NOW! CHECK THE VIDEO BELOW
        </Disclaimer>
       <Intro />
     </div>
