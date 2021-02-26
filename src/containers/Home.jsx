@@ -18,7 +18,7 @@ export default () => {
   return (
     <div>
       <Disclaimer>
-        VALENTINE'S DAY - OUT NOW! CHECK THE VIDEO BELOW
+        TODAY - OUT NOW! CHECK THE VIDEO BELOW
        </Disclaimer>
       <Intro />
     </div>

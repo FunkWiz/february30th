@@ -13,6 +13,9 @@ export default () => {
   MixpanelApi.reportPageView('Videos');
   return (
     <div>
+      <VideoContainer>
+      <YouTubeEmbed videoId="IE7podYmyIw" videoTitle="Today" />
+     </VideoContainer>
      <VideoContainer>
       <YouTubeEmbed videoId="-dlKXcsNRMM" videoTitle="Valentine's Day" />
      </VideoContainer>
