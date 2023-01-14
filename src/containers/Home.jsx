@@ -1,8 +1,9 @@
-import React from 'react'
-import { MixpanelApi } from '../api/mixpanel-api';
-import { GaApi } from '../api/ga-api';
-import Intro from '../components/Intro';
-import styled from 'styled-components';
+import React from "react";
+import { MixpanelApi } from "../api/mixpanel-api";
+import { GaApi } from "../api/ga-api";
+import Intro from "../components/Intro";
+import styled from "styled-components";
+import { useEffect } from "react";
 
 const Disclaimer = styled.h3`
   font-size: 18px;
@@ -13,14 +14,15 @@ const Disclaimer = styled.h3`
 `;
 
 export default () => {
-  GaApi.reportPageView();
-  MixpanelApi.reportPageView('Home');
+  useEffect(() => {
+    GaApi.reportPageView();
+    MixpanelApi.reportPageView("Home");
+  }, []);
+
   return (
     <div>
-      <Disclaimer>
-        TODAY - OUT NOW! CHECK THE VIDEO BELOW
-       </Disclaimer>
+      <Disclaimer>TODAY - OUT NOW! CHECK THE VIDEO BELOW.</Disclaimer>
       <Intro />
     </div>
-  )
-}
+  );
+};
